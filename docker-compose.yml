@@ -8,15 +8,15 @@
 #     ports:
 #       - "3000:3000"
 #     volumes:
-#       - "/app/node_modules" #Ini berarti tidak dimounting ke mana". Pure punya container itu sendiri
-#       - ".:/app" #mounting current directory ke folder /app di container. Pembeda dengan atas yaitu di sini ada ":"
+#       - "/home/node/app/node_modules" #Ini berarti tidak dimounting ke mana". Pure punya container itu sendiri
+#       - ".://home/node/app" #mounting current directory ke folder /app di container. Pembeda dengan atas yaitu di sini ada ":"
 #   tests:
 #     build: .
 #       # context: .
 #       # dockerfile: Dockerfile
 #     volumes:
-#       - /app/node_modules
-#       - .:/app
+#       - /home/node/app/node_modules
+#       - .://home/node/app
 #     command: ["npm","run", "test"]
 
 #Production
