@@ -1,29 +1,19 @@
-# Development
-# version: '3'
-# services:
-#   web:
-#     build: .
-#       # context: .
-#       # dockerfile: Dockerfile
-#     ports:
-#       - "3000:3000"
-#     volumes:
-#       - "/home/node/app/node_modules" #Ini berarti tidak dimounting ke mana". Pure punya container itu sendiri
-#       - ".://home/node/app" #mounting current directory ke folder /app di container. Pembeda dengan atas yaitu di sini ada ":"
-#   tests:
-#     build: .
-#       # context: .
-#       # dockerfile: Dockerfile
-#     volumes:
-#       - /home/node/app/node_modules
-#       - .://home/node/app
-#     command: ["npm","run", "test"]
-
-#Production
 version: '3'
 services:
-  web: 
+  web:
     build: .
+      # context: .
+      # dockerfile: Dockerfile
     ports:
-      - 8081:80
-    
+      - "3000:3000"
+    volumes:
+      - "/home/node/app/node_modules" #Ini berarti tidak dimounting ke mana". Pure punya container itu sendiri
+      - ".://home/node/app" #mounting current directory ke folder /app di container. Pembeda dengan atas yaitu di sini ada ":"
+  tests:
+    build: .
+      # context: .
+      # dockerfile: Dockerfile
+    volumes:
+      - /home/node/app/node_modules
+      - .://home/node/app
+    command: ["npm","run", "test"]
