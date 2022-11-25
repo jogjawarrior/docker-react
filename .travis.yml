@@ -8,3 +8,16 @@ before_install:
 
 script:
   - docker run -e CI=true jogjawarrior/docker-react npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-1" #diambil dari url EBS dari AWS
+  app: "docker-react" #diambil dari EBS AWS juga
+  env: "Dockerreact-env"
+  bucket_name: "elasticbeanstalk-ap-northeast-1-622384535228" #Ambil dari S3 AWS
+  bucket_path: "docker-react" #persis dengan nama app
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  access_secret_key: "$AWS_SECRET_KEY"
+
