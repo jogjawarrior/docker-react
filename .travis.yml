@@ -3,11 +3,11 @@ sudo: required
 services: 
   - docker
 
-before_install:
-  - docker build -t jogjawarrior/docker-react -f Dockerfile.dev .
+# before_install:
+#   - docker build -t jogjawarrior/docker-react -f Dockerfile.dev .
 
-script:
-  - docker run -e CI=true jogjawarrior/docker-react npm run test
+# script:
+#   - docker run -e CI=true jogjawarrior/docker-react npm run test
 
 deploy:
   provider: elasticbeanstalk
