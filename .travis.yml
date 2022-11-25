@@ -4,7 +4,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t jogjawarrior/docker-react -f Dockerfile.dev .
+  - docker build -t jogjawarrior/docker-react .
 
 script:
   - docker run -e CI=true jogjawarrior/docker-react npm run test
