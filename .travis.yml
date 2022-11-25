@@ -1,14 +1,13 @@
-sudo: required
 language: generic 
+sudo: required
 services: 
   - docker
 
 before_install:
-  - docker build -t jogjawarrior/docker-react .
+  - docker build -t jogjawarrior/docker-react -f Dockerfile.dev .
 
-# Untuk kalau di dev aja ini
-# script:
-#   - docker run -e CI=true jogjawarrior/docker-react npm run test
+script:
+  - docker run -e CI=true jogjawarrior/docker-react npm run test
 
 deploy:
   provider: elasticbeanstalk
@@ -21,3 +20,4 @@ deploy:
     branch: main
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: "$AWS_SECRET_KEY"
+
